@@ -1,6 +1,10 @@
 package com.weekify.domain.user.entity;
 
 import com.weekify.common.entity.BaseEntity;
+import com.weekify.domain.goal.entity.StudyGoal;
+import com.weekify.domain.group.entity.GroupMember;
+import com.weekify.domain.group.entity.StudyGroup;
+import com.weekify.domain.study.entity.StudyLog;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -34,4 +38,16 @@ public class User extends BaseEntity {
      */
     @OneToMany(mappedBy = "user")
     private List<UserCategory> userCategories = new ArrayList<>();
+
+    @OneToMany(mappedBy = "userID")
+    private List<StudyGoal> studyGoals = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user_id")
+    private List<StudyLog> studyLogs = new ArrayList<>();
+
+    @OneToMany(mappedBy = "leader")
+    private List<StudyGroup> studyGroups = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<GroupMember> groupMembers = new ArrayList<>();
 }

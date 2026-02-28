@@ -14,10 +14,10 @@ import lombok.NoArgsConstructor;
          Category_id 단독 UNIQUE -> 다대다 관계 깨짐
          (user_id, category_id) 복합 UNIQUE -> 원하는 중복만 방지
          */
-        uniqueConstraints = @UniqueConstraint(
-                name = "uk_user_categorties_user_id_category_id",
-                columnNames = {"user_id", "category_id"}
-        )
+        uniqueConstraints = {
+                @UniqueConstraint (name ="uk_user_categorties_user_id_category_id",
+columnNames ={"user_id","category_id"})
+        }
 )
 @Getter
 @NoArgsConstructor
